@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="contractsProgressEvaluation"
+            type="br.com.stant.stant_android_fiscal.contractprogressevaluation.constractsprogressevaluation.domain.dto.ContractProgressEvaluationDto" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/contracts_progress_evaluation_frag_item_general_container_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{contractsProgressEvaluation.title}"
+                tools:text="Contrato de Medição"
+                android:textSize="14sp"
+                android:textColor="@color/dark_gray"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textColor="@color/dark_gray"
+                android:text="@{contractsProgressEvaluation.totalItems}"
+                android:textSize="18sp"
+                tools:text="50"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:id="@+id/contracts_progress_evaluation_approved_bar_linear_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="50"
+                tools:layout_weight="50"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/green_progress"
+                    android:orientation="horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_gravity="center"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray"
+                    tools:text="50%"
+                    android:text="@{contractsProgressEvaluation.approvedPercentOfContractProgressEvaluationString}"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contracts_progress_evaluation_in_progress_bar_linear_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:layout_weight="10"
+                android:layout_weight="10"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/light_gray"
+                    android:orientation="horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray"
+                    tools:text="10%"
+                    android:text="@{contractsProgressEvaluation.notInspectedPercentOfContractProgressEvaluationString}"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/contracts_progress_evaluation_disapproved_bar_linear_layout"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:layout_weight="40"
+                android:layout_weight="40"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/red_progress"
+                    android:orientation="horizontal"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/gray"
+                    android:text="@{contractsProgressEvaluation.disapprovedPercentOfContractProgressEvaluationString}"
+                    tools:text="40%"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

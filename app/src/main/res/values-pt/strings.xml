@@ -1,0 +1,62 @@
+<resources>
+    <string name="permission_information_dialog.message">É necessário aceitar as permissões a seguir para utilizar o aplicativo</string>
+    <string name="permission_information_dialog.never_checked_message">Ao clicar no botão você será redirecionado para a tela de detalhes do aplicativo, lá você deve clicar em permissões e aceitar as permissões para utilizar o aplicativo</string>
+    <string name="login_information_dialog.settings">Configurações</string>
+    <string name="login_information_dialog.ok_hint">Ok</string>
+    <string name="on_load_failed">Ocorreu um erro inesperado, entre em contato com a equipe STANT.</string>
+
+    <string name="main_menu_option.logout">Sair</string>
+
+
+    <string name="logout_confirmation.title">Sair</string>
+    <string name="logout_confirmation.text">Tem certeza que deseja sair do seu usuário e voltar para tela de login?</string>
+    <string name="logout_confirmation.cancel_logout">Ficar</string>
+    <string name="logout_confirmation.confirm_logout">Sair</string>
+
+    <string name="login_frag.app_title">Sistema de Fiscalização</string>
+    <string name="login_frag.powered_by">Powered by</string>
+    <string name="login_frag.company">Stant</string>
+    <string name="login_frag.email">Email</string>
+    <string name="login_frag.password">Senha</string>
+    <string name="login_frag.forgot_password">Esqueceu a senha ?</string>
+    <string name="login_frag.login_btn">Entrar</string>
+
+    <string name="login_frag.saripaar_errors.not_empty">Obrigatório</string>
+    <string name="login_frag.saripaar_errors.email">Email inválido</string>
+    <string name="login_frag.saripaar_errors.password">Senha inválida</string>
+    <string name="login_frag.saripaar_errors.invalid_grant">Email e/ou Senha Incorreto</string>
+    <string name="login_frag.saripaar_errors.no_network_connection">Sem Conexão com a Internet</string>
+
+    <string name="select_construction_site.made_contract">Contratos Realizados</string>
+    <string name="select_construction_site.construction_site">Obras</string>
+    <string name="select_construction_site.search_construction_site">Procurar Obras ..</string>
+    <string name="select_construction_site.empty_list">Sem obras para serem exibidas.</string>
+
+    <string name="contracts_progress_evaluation_data_tabs.in_progress">Andamento</string>
+    <string name="contracts_progress_evaluation_data_tabs.finish">Finalizado</string>
+    <string name="contracts_progress_evaluation_data_tabs.approved">Aprovado</string>
+
+    <string-array name="contracts_progress_evaluation_data_tabs_tab_titles">
+        <item>@string/contracts_progress_evaluation_data_tabs.in_progress</item>
+        <item>@string/contracts_progress_evaluation_data_tabs.finish</item>
+        <item>@string/contracts_progress_evaluation_data_tabs.approved</item>
+    </string-array>
+
+
+    <string name="contract_progress_evaluation_detail_frag.begin_date_of_contract_progress_evaluation">Data de Início</string>
+    <string name="contract_progress_evaluation_detail_frag.items_of_contracts_progress_evaluation_performed">Itens Realizados</string>
+    <string name="contract_progress_evaluation_detail_frag.items_of_contracts_progress_evaluation_remaining">Itens Restantes</string>
+
+    <string name="contract_progress_evaluation_detail_frag.in_progress">Em Andamento</string>
+    <string name="contract_progress_evaluation_detail_frag.finish">Finalizado</string>
+    <string name="contract_progress_evaluation_detail_frag.disapproved">Reprovado</string>
+    <string name="contract_progress_evaluation_detail_frag.approved">Aprovado</string>
+    <string name="contract_progress_evaluation_detail_frag.do_not_set_state_message">Este item já está aprovado, não é possível selecionar um novo estado.</string>
+    <string name="contract_progress_evaluation_detail_frag.failed_set_state">Notamos algum problema ao selecionar o novo status, verifique sua conexão com a internet .</string>
+    <string name="contract_progress_evaluation_detail_frag_dialog.cancel_button">Voltar</string>
+    <string name="contract_progress_evaluation_detail_frag_dialog.justify_button">Justificar</string>
+    <string name="contract_progress_evaluation_detail_frag_dialog.disapprove_button">Reprovar</string>
+    <string name="contract_progress_evaluation_detail_frag_dialog.text_disapprove_guide">Sempre que reprovar uma ficha você pode justificar a ação . Gostaria de justificar ?</string>
+    <string name="contract_progress_evaluation_detail_frag_dialog.disapproval">Reprovação</string>
+
+</resources>

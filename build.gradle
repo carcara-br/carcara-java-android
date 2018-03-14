@@ -1,0 +1,48 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath 'me.tatarka:gradle-retrolambda:3.2.5'
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext.global_compileSdkVersion = Integer.parseInt(project.COMPILE_SDK_VERSION)
+ext.global_buildToolsVersion = project.BUILD_TOOLS_VERSION
+ext.global_minSdkVersion     = Integer.parseInt(project.MIN_SDK_VERSION)
+ext.global_targetSdkVersion  = Integer.parseInt(project.TARGET_SDK_VERSION)
+ext.global_versionCode       = Integer.parseInt(project.VERSION_CODE)
+ext.global_versionName       = project.VERSION_NAME
+
+ext.getAppVersion = { ->
+ def version = "v" + global_versionCode + "-" + global_versionName
+ return version;
+}
+
+ext.getOutputFile = { output, buildType ->
+ def version = getAppVersion()
+ def name    = output.outputFile.name
+
+ name = name.replace("app", "stant")
+ name = name.replace(buildType, buildType + "-" + version)
+
+ output.outputFile = new File(output.outputFile.parent, name)
+ return output;
+}

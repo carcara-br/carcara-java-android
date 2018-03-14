@@ -1,0 +1,171 @@
+apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    signingConfigs {
+        stant_prod_keystore {
+            keyAlias 'stant_prod_key'
+            keyPassword 'stant_prod'
+            storeFile file('stant_prod.keystore')
+            storePassword 'stant_prod'
+        }
+        stant_stage_keystore {
+            keyAlias 'stant_stage_key'
+            keyPassword 'stant_stage'
+            storeFile file('stant_stage.keystore')
+            storePassword 'stant_stage'
+        }
+        stant_mock_keystore {
+            keyAlias 'stant_mock_key'
+            keyPassword 'stant_mock'
+            storeFile file('stant_mock.keystore')
+            storePassword 'stant_mock'
+        }
+    }
+
+    compileSdkVersion global_compileSdkVersion
+    buildToolsVersion global_buildToolsVersion
+    defaultConfig {
+        applicationId "br.com.stant.stant_android_fiscal"
+        minSdkVersion global_minSdkVersion
+        targetSdkVersion global_targetSdkVersion
+        versionCode global_versionCode
+        versionName global_versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // Enabling multidex support.
+        multiDexEnabled true
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    productFlavors {
+        mock {
+            signingConfig signingConfigs.stant_mock_keystore
+            applicationIdSuffix = ".mock"
+            buildConfigField "String", "BASE_URL", "\"http://fake.stant.com.br\""
+            resValue "string", "login_frag.version", ("Mock " + global_versionName)
+            resValue "string", "app_name", "Stant Fiscal Mock"
+            resValue "string", "login_email", "stant@stant.com.br"
+            resValue "string", "login_password", "stant123"
+        }
+        stage {
+            signingConfig signingConfigs.stant_stage_keystore
+            applicationIdSuffix = ".stage"
+            buildConfigField "String", "BASE_URL", "\"http://stage.stant.com.br/\""
+            resValue "string", "login_frag.version", ("Stage " + global_versionName)
+            resValue "string", "app_name", "Stant Fiscal Stage"
+            resValue "string", "login_email", "valter@hotmail.com"
+            resValue "string", "login_password", "12345678"
+        }
+        prod {
+            signingConfig signingConfigs.stant_prod_keystore
+            buildConfigField "String", "BASE_URL", "\"http://web.stant.com.br/\""
+            resValue "string", "login_frag.version", (" " + global_versionName)
+            resValue "string", "app_name", "Stant Fiscal"
+            resValue "string", "login_email", ""
+            resValue "string", "login_password", ""
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile 'com.android.support:multidex:1.0.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-beta5'
+    compile 'com.android.support:design:25.3.1'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.google.guava:guava:20.0'
+    compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha7'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+
+    // View libs
+    compile 'me.grantland:autofittextview:0.2.+'
+    compile 'com.github.siyamed:android-shape-imageview:0.9.+@aar'
+
+    // Swipe Layout
+    compile "com.daimajia.swipelayout:library:1.2.0@aar"
+
+    // Reactive eXtensions
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.8'
+
+    // Reactive eXtensions
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.8'
+
+    // Gson - json parser
+    compile 'com.google.code.gson:gson:2.7'
+
+    // Images Manipulation
+    compile 'com.squareup.picasso:picasso:2.5.2'
+
+    // Rest
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+    compile 'com.squareup.okhttp:okhttp:2.7.5'
+    compile 'com.github.brunodles:AndroidSimplePreferences:0.3.1'
+
+    // Validations
+    compile 'com.mobsandgeeks:android-saripaar:2.0.2'
+
+    // Dependencies for local unit tests
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.mockito:mockito-core:1.10.19'
+    testCompile 'com.squareup.retrofit2:retrofit:2.1.0'
+    testCompile 'io.reactivex:rxjava:1.1.8'
+
+    testCompile "org.powermock:powermock-module-junit4:1.6.5"
+    testCompile "org.powermock:powermock-module-junit4-rule:1.6.5"
+    testCompile "org.powermock:powermock-api-mockito:1.6.5"
+    testCompile "org.powermock:powermock-classloading-xstream:1.6.5"
+    testCompile 'org.powermock:powermock-api-mockito:1.6.5'
+
+    // Espresso UI Testing
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.google.guava'
+        exclude module: 'espresso-idling-resource'
+    })
+    androidTestCompile('com.android.support.test.espresso:espresso-contrib:2.2.2', {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    })
+    androidTestCompile 'com.android.support.test.espresso:espresso-intents:2.2.2'
+
+    // Resolve conflicts between main and test APK:
+    androidTestCompile "com.android.support:support-annotations:25.3.1"
+    androidTestCompile 'com.android.support:appcompat-v7:25.3.1'
+    androidTestCompile 'com.android.support:design:25.3.1'
+    androidTestCompile 'com.android.support:support-v4:25.3.1'
+    androidTestCompile 'com.android.support:recyclerview-v7:25.3.1'
+
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="orange_stant">#ee3923</color>
+    <color name="light_gray">#DFDFDF</color>
+    <color name="gray">#CDCECF</color>
+    <color name="dark_gray">#717171</color>
+    <color name="secondary_color">#F66679</color>
+    <color name="black">#464646</color>
+    <color name="teal_green">#07566E</color>
+    <color name="green_progress">#05CC69</color>
+    <color name="red_progress">#E80000</color>
+    <color name="gray_frag_bg">#E8EEF7</color>
+    <color name="red_error">#d30000</color>
+    <color name="green_base">#4cb69f</color>
+    <color name="red">#d20f0f</color>
+    <color name="green_approved">#3baa2d</color>
+
+</resources>
